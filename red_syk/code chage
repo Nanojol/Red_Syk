@@ -1,0 +1,64 @@
+'''unicode.py'''
+    # проверяем файлы чтоб читались в кодировании utf-8-sig, для ручной проверки заходим в файл и при попытки "сохранить как" справа внизу есть кодирование
+    s = open('file3.txt', mode='r', encoding='utf-8-sig').read()
+    print(s)
+'''create new doc.py'''
+    # Производим захват инфы в файле (encoding='utf-8' - обязательно, т.к. файлы изначально не в другом кодировании utf-8-sig)
+    with open('03_murder.txt', 'r', encoding='utf-8') as file:
+      fd = file.read()
+    # Меняем найденые значения
+    filedata = fd.replace('Чёрн', 'Красн')
+    print(filedata)
+    # Создаём файл с корректированными значиями
+    with open('test1.txt', 'w', encoding='utf-8') as ver2:
+      ver2.write(filedata)
+'''change1.py'''
+    def change_words(file_name, replace_old, replase_new, new_file_name):
+    # Открываем файл
+        with open(f'{file_name}', 'r', encoding='utf-8') as file:
+            fd = file.read()
+    # Меняем найденые значения
+        filedata = fd.replace(f'{replace_old}', f'{replase_new}')
+      # Создаём файл с корректированными значиями
+        with open(f'{new_file_name}', 'w', encoding='utf-8') as ver2:
+            ver2.write(filedata)
+    change_words('01_jorney_begin.txt','Чёрн','Красн','01_jorney_begin.txt')
+    change_words('01_jorney_begin.txt','Курточ','Шапоч','01_jorney_begin.txt')
+    change_words('02_unexpected_meet.txt','Чёрн','Красн','02_unexpected_meet.txt')
+    change_words('02_unexpected_meet.txt','Курточ','Шапоч','02_unexpected_meet.txt')
+    change_words('03_murder.txt','Чёрн','Красн','03_murder.txt')
+    change_words('03_murder.txt','Курточ','Шапоч','03_murder.txt')
+    change_words('04_second_victim.txt','Чёрн','Красн','04_second_victim.txt')
+    change_words('04_second_victim.txt','Курточ','Шапоч','04_second_victim.txt')
+    change_words('05_retribution.txt','Чёрн','Красн','05_retribution.txt')
+    change_words('05_retribution.txt','Курточ','Шапоч','05_retribution.txt')
+'''change2.py'''
+    def change_words(file_name, replace_old, replase_new, new_file_name):
+    # Открываем файл
+        with open(f'{file_name}', 'r', encoding='utf-8') as file:
+            fd = file.read()
+    # Меняем найденые значения
+        filedata = fd.replace(f'{replace_old}', f'{replase_new}')
+    # Создаём файл с корректированными значиями
+        with open(f'{new_file_name}', 'w', encoding='utf-8') as ver2:
+            ver2.write(filedata)
+    change_words('01_jorney_begin.txt','Гоблин','Волк','01_jorney_begin.txt')
+    change_words('02_unexpected_meet.txt','Гоблин','Волк','02_unexpected_meet.txt')
+    change_words('03_murder.txt','Гоблин','Волк','03_murder.txt')
+    change_words('04_second_victim.txt','Гоблин','Волк','04_second_victim.txt')
+    change_words('05_retribution.txt','Гоблин','Волк','05_retribution.txt')
+'''change3.py'''
+    def change_words(file_name, replace_old, replase_new, new_file_name):
+    # Открываем файл
+        with open(f'{file_name}', 'r', encoding='utf-8') as file:
+            fd = file.read()
+    # Меняем найденые значения
+        filedata = fd.replace(f'{replace_old}', f'{replase_new}')
+    # Создаём файл с корректированными значиями
+        with open(f'{new_file_name}', 'w', encoding='utf-8') as ver2:
+            ver2.write(filedata)
+    change_words('01_jorney_begin.txt','пружинк','Веревочк','01_jorney_begin.txt')
+    change_words('02_unexpected_meet.txt','пружинк','Веревочк','02_unexpected_meet.txt')
+    change_words('03_murder.txt','пружинк','Веревочк','03_murder.txt')
+    change_words('04_second_victim.txt','пружинк','Веревочк','04_second_victim.txt')
+    change_words('05_retribution.txt','пружинк','Веревочк','05_retribution.txt')
